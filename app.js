@@ -18,7 +18,7 @@ app.set('view engine','ejs')
 
 //conect to MongoDB
 
-const dbURI = 'mongodb+srv://Krastii:170199eperol@nodetutorial.s7g8l.mongodb.net/Node-tut?retryWrites=true&w=majority';
+const dbURI = 'mongodb+srv://<name>:<password>@nodetutorial.s7g8l.mongodb.net/<nameCollections>?retryWrites=true&w=majority';
 mongoose.connect(dbURI,{useNewUrlParser: true, useUnifiedTopology: true})
 .then((result)=>app.listen(3000))
 .catch((err)=>console.log(err))
@@ -34,9 +34,6 @@ app.use(express.urlencoded({extended: true}))
 
 
 app.get('/',(req,res)=>{
-    //res.send('<h1>home page</h1>')
-    //res.sendFile('./docs/index.html',{root: __dirname})
-    //res.render('index', { title: 'Blog' , blogs })
     res.redirect('/blogs')
 })
 
@@ -44,8 +41,6 @@ app.get('/',(req,res)=>{
 
 
 app.get('/about',(req,res)=>{
-    //res.send('<h1>home page</h1>')
-    //res.sendFile('./docs/about.html',{root: __dirname})
     res.render('about',{title: 'About'})
 })
 
@@ -63,6 +58,5 @@ app.use('/blogs',blogRoutes)
 //для любого запроса
 
 app.use((req,res)=>{
-    //res.status(404).sendFile('./docs/404.html',{root: __dirname})
     res.status(404).render('404',{title: '404'})
 })
