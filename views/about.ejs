@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs')  %> 
+<body class="d-flex flex-column min-vh-100">
+    <%- include('./partials/nav.ejs')  %> 
+    <div class=" container aboutCore">
+        
+    <h1>Aboyt me</h1>
+    <p><h3>Hey, my name is Kirill and i learn JavaScript</h3></p>
+    <img src="../image/BITCBwSJGlQ.jpg" alt="error">
+
+    </div>
+    <script>
+        const excretionNav = document.querySelector('.text-secondary') 
+        excretionNav.classList.remove("text-secondary")
+        excretionNav.classList.add('text-white')
+       const aboutNav =  document.querySelector('.about')
+       aboutNav.classList.remove('text-white') 
+       aboutNav.classList.add('text-secondary');
+    </script>
+    <%- include('./partials/footer.ejs')  %> 
+</body>
+</html>

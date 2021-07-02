@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('./partials/head.ejs')  %> 
+
+<body >
+    
+    <!-- nav -->
+    <%- include('./partials/nav.ejs')  %> 
+    <div class="coreСontainer">
+<div class="blogs-content container">
+    <!-- <h3>All Blogs:</h3> -->
+
+    <% if(blogs.length > 0){%>
+        <% blogs.forEach(element => { %>
+            <div class="blog container">   
+                <div class="container basicData">
+                    <a class="single" href="/blogs/<%= element._id%>">
+                    <img src="./image/<%= element.fileName %>" alt="error">
+                    <div class=" textBlog">
+                        <h1 class="title "><%= element.title %> </h1>
+                        <!-- <p class="snippet"><%= element.snippet %> </p> -->
+                        <p class="bodyBlog "><%= element.body %> </p></a>
+                    </div>
+                    </a>  
+                    <div class="timeCreate"> 
+                <%= element.createdAt.getDate() %>.<%= element.createdAt.getMonth() %>.<%= element.createdAt.getFullYear() %>  
+                    </div>
+                </div> 
+            
+            
+        </div>
+        
+        <% });  %>
+        
+    <% } %>  
+
+</div></div>
+
+<%- include('./partials/footer.ejs')  %> 
+</body>
+</html>
